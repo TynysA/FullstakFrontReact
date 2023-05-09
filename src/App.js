@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import AddStudent from "./components/base/AddStudent";
+import Home from "./components/base/Home";
+import Student from "./components/base/Student";
 
 function App() {
+  const [added, setadded] = useState(false);
+  const [students, setStudents] = useState([]);
+  // const GetAll =
+
+  async function getAll() {
+    const res = await fetch(`http://localhost:8080/student/getAll`);
+    const results = await res.json();
+    setStudents(results);
+  }
+  useEffect(() => {
+    getAll();
+  }, [students]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddStudent setStudents={setStudents} students={students}></AddStudent>
+      <Header></Header>
+      <div className="home__base">
+        <Home></Home>
+        <div className="container">
+          {students?.map((student, idx) => (
+            <Student idx={idx} key={student.id} student={student} />
+            // <div className="student__block" key={student.id}>
+            //   <div className="student__info">
+            //     {" "}
+            //     <div className="">{idx + 1}.</div>
+            //     <div className="student__name">Name:{student.name}</div>
+            //     <div className=""> Address:{student.address}</div>
+            //   </div>
+            //   <div className="student__action">
+            //     <button onClick={deleteStudent} className="student__delete">
+            //       Delete
+            //     </button>
+            //   </div>
+            // </div>
+          ))}
+        </div>
+      </div>
+      <Footer></Footer>
     </div>
   );
 }

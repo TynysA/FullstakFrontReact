@@ -1,38 +1,198 @@
 .App {
   text-align: center;
+  background: #f2f4f5;
+  height: 100vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.none {
+  display: none !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 1228px;
+  padding: 0px 5px;
+  margin: 0 auto;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Modal Wrap */
+.contact__modal-wrap {
+  position: absolute;
+  background-color: #f8f8f8;
+  z-index: 1100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  display: none;
+}
+.contact__modal-wrap {
+  background-color: #f8f8f8;
+  position: fixed;
+  z-index: 1100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  opacity: 0.8;
+}
+.contact__modal-wrap.active {
+  display: flex;
+}
+.contact__modal {
+  position: relative;
+  width: 30%;
+  padding: 50px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+}
+.contact__modal-title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 120%;
+  text-align: center;
+  color: #0096dd;
+  margin-bottom: 35px;
+}
+
+.contact__modal .contact__input {
+  padding: 19px 10px 19px 20px;
+  min-width: 200px;
+  border-width: 1px;
+  border-radius: 10px;
+}
+.contact__name {
+  margin-bottom: 20px;
+}
+.contact__btn {
+  background-color: #0096dd;
   color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 24px;
+}
+.contact__modal-close {
+  position: absolute;
+  right: 36px;
+  top: 26px;
+  cursor: pointer;
+}
+.close_vector {
+  width: 34px;
+  height: 34px;
+  position: relative;
+}
+.close_vector::after,
+.close_vector::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  background: #9798a9;
+  height: 2px;
+  width: 34px;
+}
+.close_vector::after {
+  transform: rotate(45deg);
+}
+.close_vector::before {
+  transform: rotate(-45deg);
+}
+@media (max-width: 900px) {
+  .contact__modal-title {
+    font-size: 26px;
+  }
+  .contact__modal {
+    width: 88%;
+    padding: 50px 30px;
+  }
+}
+@media (max-width: 400px) {
+  .contact__modal {
+    width: 95%;
+    padding: 30px 5px;
+  }
+}
+/* Student */
+.student__block {
+  border: 1px solid #aa72ff;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.student__info {
+  display: flex;
+  align-items: center;
+}
+.student__delete {
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: red;
+}
+.student__name {
+  margin: 0px 20px;
+}
+/* Header */
+.header {
+  border-bottom: 10px solid #e8edf3;
+  background: #ffffff;
+  padding-bottom: 5px;
+}
+.header__inner {
+  display: flex;
+  padding: 20px 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.header__nav {
+  display: flex;
 }
+.nav__link {
+  margin-right: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #616a75;
+}
+/* Main */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Home */
+.home__base {
+  margin-top: 5px;
+  padding-bottom: 60px;
+  min-height: 600px;
+  background: #f2f4f5;
+}
+.home {
+}
+.home__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+.home__title {
+  font-size: 24px;
+}
+.home__add {
+  font-size: 20px;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  background-color: #aa72ff;
+  cursor: pointer;
+}
+.footer {
+  margin: 20px 0px;
+  padding: 10px 0px;
 }
